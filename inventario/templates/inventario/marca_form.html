@@ -1,0 +1,13 @@
+{% extends 'inventario/base.html' %}
+
+{% block content %}
+<h1>{{ form.instance.id|yesno:"Editar Marca,Nueva Marca" }}</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <button class="btn btn-create" type="submit">Guardar</button>
+</form>
+
+{% endblock %}

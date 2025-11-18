@@ -1,0 +1,26 @@
+{% extends 'inventario/base.html' %}
+
+{% block content %}
+<h1>Listado de Marcas</h1>
+
+<a href="/marcas/crear/" class="btn btn-create">+ Crear nueva marca</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+    </tr>
+
+    {% for m in marcas %}
+    <tr>
+        <td>{{ m.id }}</td>
+        <td>{{ m.nombre }}</td>
+        <td>
+            <a href="/marcas/editar/{{ m.id }}/" class="btn btn-edit">Editar</a>
+            <a href="/marcas/eliminar/{{ m.id }}/" class="btn btn-delete">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
